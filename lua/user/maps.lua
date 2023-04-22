@@ -41,3 +41,8 @@ keymap.set('n', '<C-a>', 'gg<S-v>G')
 -- nvim-tree
 keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>") -- toggle file explorer
 
+-- git signs
+keymap.set("n", "<leader>gn", ":Gitsigns next_hunk<CR>") -- goto next hunk
+keymap.set("n", "<leader>gp", ":Gitsigns prev_hunk<CR>") -- goto prev hunk
+keymap.set("n", "<leader>gv", ":Gitsigns preview_hunk<CR>") -- preview hunk
+keymap.set("n", "<leader>gb", ":Gitsigns blame_line<CR>") -- line blame
