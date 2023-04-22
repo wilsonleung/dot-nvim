@@ -20,7 +20,7 @@ vim.opt.backupskip = { '/tmp/*', '/private/tmp/*' }
 vim.opt.inccommand = 'split'
 
 -- Case insensitive searching UNLESS /C or capital in search
-vim.opt.ignorecase = true 
+vim.opt.ignorecase = true
 
 vim.opt.smarttab = true
 vim.opt.breakindent = true
@@ -28,12 +28,12 @@ vim.opt.shiftwidth = 2
 vim.opt.tabstop = 2
 
 -- No Wrap lines
-vim.opt.wrap = false 
+vim.opt.wrap = false
 
 vim.opt.backspace = { 'start', 'eol', 'indent' }
 
 -- Finding files - Search down into subfolders
-vim.opt.path:append { '**' } 
+vim.opt.path:append { '**' }
 vim.opt.wildignore:append { '*/node_modules/*' }
 
 -- Undercurl
@@ -52,6 +52,9 @@ vim.opt.formatoptions:append { 'r' }
 -- consider string-string as whole word
 vim.opt.iskeyword:append("-")
 
+-- show sign column so that text doesn't shift
+vim.opt.signcolumn = "yes"
+
 -- highlight related
 vim.opt.cursorline = true
 vim.opt.termguicolors = true
@@ -59,3 +62,16 @@ vim.opt.winblend = 0
 vim.opt.wildoptions = 'pum'
 vim.opt.pumblend = 5
 vim.opt.background = 'dark'
+
+-- clipboard handling
+local has = vim.fn.has
+local is_mac = has "macunix"
+local is_win = has "win32"
+local is_wsl = has "wsl"
+
+if is_mac then
+  vim.opt.clipboard:append { 'unnamedplus' }
+end
+if is_win then
+  vim.opt.clipboard:prepend { 'unnamed', 'unnamedplus' }
+end
