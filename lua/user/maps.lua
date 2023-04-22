@@ -31,6 +31,10 @@ keymap.set("n", "<leader>tx", ":tabclose<CR>") -- close current tab
 keymap.set("n", "<leader>tn", ":tabn<CR>") --  go to next tab
 keymap.set("n", "<leader>tp", ":tabp<CR>") --  go to previous tab
 
+-- buffer
+keymap.set("n", "<leader>bp", ":bprev<CR>") --  go to buffer previous
+keymap.set("n", "<leader>bn", ":bnext<CR>") --  go to buffer next
+
 -- Select all
 keymap.set('n', '<C-a>', 'gg<S-v>G')
 
