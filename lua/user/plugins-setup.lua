@@ -37,6 +37,9 @@ return require('packer').startup(function(use)
   -- vs-code like icons
   use("nvim-tree/nvim-web-devicons")
 
+  -- show line modifications on left hand side
+  use {'lewis6991/gitsigns.nvim', tag ='v0.6'}
+
   -- ======================
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
