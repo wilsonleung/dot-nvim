@@ -40,6 +40,14 @@ return require('packer').startup(function(use)
   -- show line modifications on left hand side
   use {'lewis6991/gitsigns.nvim', tag ='v0.6'}
 
+  -- tmux & split window navigation
+  use("christoomey/vim-tmux-navigator")
+
+  -- todo: after treesitter
+  -- auto closing
+  -- use("windwp/nvim-autopairs") -- autoclose parens, brackets, quotes, etc...
+  -- use({ "windwp/nvim-ts-autotag", after = "nvim-treesitter" }) -- autoclose tags
+
   -- ======================
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
