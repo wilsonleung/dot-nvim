@@ -34,6 +34,9 @@ return require('packer').startup(function(use)
   -- file explorer
   use("nvim-tree/nvim-tree.lua")
 
+  -- fuzzy finding w/ telescope
+  use { "nvim-telescope/telescope.nvim", branch = "0.1.x" }
+
   -- vs-code like icons
   use("nvim-tree/nvim-web-devicons")
 
