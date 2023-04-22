@@ -22,8 +22,12 @@ return require('packer').startup(function(use)
     'svrana/neosolarized.nvim',
     requires = { 'tjdevries/colorbuddy.nvim' }
   }
+  -- Common utilities
+  use {'nvim-lua/plenary.nvim', tag = 'v0.1.3'}
 
-  use {'nvim-lua/plenary.nvim', tags = 'v0.1.3'}
+  -- Statusline
+  use {'nvim-lualine/lualine.nvim', tag = 'compat-nvim-0.6'}
+
 
   -- ======================
   -- Automatically set up your configuration after cloning packer.nvim
