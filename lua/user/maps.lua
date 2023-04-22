@@ -34,4 +34,6 @@ keymap.set("n", "<leader>tp", ":tabp<CR>") --  go to previous tab
 -- Select all
 keymap.set('n', '<C-a>', 'gg<S-v>G')
 
+-- nvim-tree
+keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>") -- toggle file explorer
 

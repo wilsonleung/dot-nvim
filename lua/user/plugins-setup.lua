@@ -28,6 +28,14 @@ return require('packer').startup(function(use)
   -- Statusline
   use {'nvim-lualine/lualine.nvim', tag = 'compat-nvim-0.6'}
 
+  -- commenting with gc
+  use {'numToStr/Comment.nvim', tag = 'v0.8.0'}
+
+  -- file explorer
+  use("nvim-tree/nvim-tree.lua")
+
+  -- vs-code like icons
+  use("nvim-tree/nvim-web-devicons")
 
   -- ======================
   -- Automatically set up your configuration after cloning packer.nvim
