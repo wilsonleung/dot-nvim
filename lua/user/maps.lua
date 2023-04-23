@@ -20,10 +20,10 @@ keymap.set("n", "<leader>se", "<C-w>=") -- make split windows equal width & heig
 keymap.set("n", "<leader>sx", ":close<CR>") -- close current split window
 
 -- Resize window
-keymap.set('n', '<C-w><left>', '<C-w><')
-keymap.set('n', '<C-w><right>', '<C-w>>')
-keymap.set('n', '<C-w><up>', '<C-w>+')
-keymap.set('n', '<C-w><down>', '<C-w>-')
+keymap.set("n", "<C-w><left>", "<C-w><")
+keymap.set("n", "<C-w><right>", "<C-w>>")
+keymap.set("n", "<C-w><up>", "<C-w>+")
+keymap.set("n", "<C-w><down>", "<C-w>-")
 
 -- tab navigation
 keymap.set("n", "<leader>to", ":tabnew<CR>") -- open new tab
@@ -36,7 +36,7 @@ keymap.set("n", "<leader>bp", ":bprev<CR>") --  go to buffer previous
 keymap.set("n", "<leader>bn", ":bnext<CR>") --  go to buffer next
 
 -- Select all
-keymap.set('n', '<C-a>', 'gg<S-v>G')
+keymap.set("n", "<C-a>", "gg<S-v>G")
 
 -- nvim-tree
 keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>") -- toggle file explorer
@@ -59,5 +59,3 @@ keymap.set("n", "<leader>gn", ":Gitsigns next_hunk<CR>") -- goto next hunk
 keymap.set("n", "<leader>gp", ":Gitsigns prev_hunk<CR>") -- goto prev hunk
 keymap.set("n", "<leader>gv", ":Gitsigns preview_hunk<CR>") -- preview hunk
 keymap.set("n", "<leader>gb", ":Gitsigns blame_line<CR>") -- line blame
-
-
