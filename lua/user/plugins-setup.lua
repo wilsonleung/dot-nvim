@@ -46,6 +46,17 @@ return require('packer').startup(function(use)
   -- tmux & split window navigation
   use("christoomey/vim-tmux-navigator")
 
+  -- snippets
+  use{"L3MON4D3/LuaSnip", tag = "v1.2.1"} -- snippet engine
+  use("saadparwaiz1/cmp_luasnip") -- for autocompletion
+  use("rafamadriz/friendly-snippets") -- useful snippets
+
+  -- autocompletion
+  use 'onsails/lspkind-nvim' -- vscode-like pictograms
+  use 'hrsh7th/cmp-buffer' -- nvim-cmp source for buffer words
+  use 'hrsh7th/cmp-nvim-lsp' -- nvim-cmp source for neovim's built-in LSP
+  use 'hrsh7th/nvim-cmp' -- Completion
+
   -- todo: after treesitter
   -- auto closing
   -- use("windwp/nvim-autopairs") -- autoclose parens, brackets, quotes, etc...
