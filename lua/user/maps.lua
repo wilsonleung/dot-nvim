@@ -20,10 +20,10 @@ keymap.set("n", "<leader>se", "<C-w>=") -- make split windows equal width & heig
 keymap.set("n", "<leader>sx", ":close<CR>") -- close current split window
 
 -- Resize window
-keymap.set("n", "<C-w><left>", "<C-w><")
-keymap.set("n", "<C-w><right>", "<C-w>>")
-keymap.set("n", "<C-w><up>", "<C-w>+")
-keymap.set("n", "<C-w><down>", "<C-w>-")
+keymap.set("n", "<A-up>", ":resize -2<CR>")
+keymap.set("n", "<A-down>", ":resize +2<CR>")
+keymap.set("n", "<A-left>", ":vertical resize -2<CR>")
+keymap.set("n", "<A-right>", ":vertical resize +2<CR>")
 
 -- Move text up and down
 keymap.set("n", "<A-j>", "<Esc>:m .+1<CR>==")
