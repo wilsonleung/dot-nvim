@@ -30,21 +30,25 @@ local on_attach = function(client, bufnr)
 	keymap.set("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
 	keymap.set("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
 	keymap.set("n", "gl", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
-	-- keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
-	keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", opts) -- show documentation for what is under cursor
+	--- show documentation for what is under cursor
+	keymap.set("n", "<leader>h", "<cmd>Lspsaga hover_doc<CR>", opts) -- hover
 	keymap.set("n", "<leader>lf", "<cmd>lua vim.lsp.buf.format{ async = true }<cr>", opts)
 	keymap.set("n", "<leader>li", "<cmd>LspInfo<cr>", opts)
 	keymap.set("n", "<leader>lI", "<cmd>LspInstallInfo<cr>", opts)
 	keymap.set("n", "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
 
-	-- keymap.set("n", "<leader>lj", "<cmd>lua vim.diagnostic.goto_next({buffer=0})<cr>", opts)
-	-- keymap.set("n", "<leader>lk", "<cmd>lua vim.diagnostic.goto_prev({buffer=0})<cr>", opts)
-	keymap.set("n", "<leader>lj", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts) -- jump to previous diagnostic in buffer
-	keymap.set("n", "<leader>lk", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts) -- jump to next diagnostic in buffer
-	keymap.set("n", "<leader>lq", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts) -- list all diagnostic in buffer
+  asdfadsf
 
+	-- diagnostics related
+	keymap.set("n", "<leader>lc", "<cmd>Lspsaga show_cursor_diagnostics<CR>", opts) -- show diagnostics for cursor
+	keymap.set("n", "<leader>lp", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts) -- jump to previous diagnostic in buffer
+	keymap.set("n", "<leader>ln", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts) -- jump to next diagnostic in buffer
+	keymap.set("n", "<leader>lq", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts) -- list all diagnostic in buffer
 	keymap.set("n", "<leader>lr", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
 	keymap.set("n", "<leader>ls", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
+
+	-- keymap.set("n", "<leader>lj", "<cmd>lua vim.diagnostic.goto_next({buffer=0})<cr>", opts)
+	-- keymap.set("n", "<leader>lk", "<cmd>lua vim.diagnostic.goto_prev({buffer=0})<cr>", opts)
 
 	--[[ keymap.set("n", "gf", "<cmd>Lspsaga lsp_finder<CR>", opts) -- show definition, references
 	keymap.set("n", "gd", "<Cmd>lua vim.lsp.buf.declaration()<CR>", opts) -- got to declaration
@@ -58,7 +62,6 @@ local on_attach = function(client, bufnr)
 	keymap.set("n", "]d", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts) -- jump to next diagnostic in buffer
 	keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", opts) -- show documentation for what is under cursor
 	keymap.set("n", "<leader>o", "<cmd>LSoutlineToggle<CR>", opts) -- see outline on right hand side ]]
-
 	-- typescript specific keymaps (e.g. rename file and update imports)
 	if client.name == "tsserver" then
 		keymap.set("n", "<leader>rf", ":TypescriptRenameFile<CR>") -- rename file and update imports
@@ -144,7 +147,8 @@ lspconfig["emmet_ls"].setup({
 lspconfig["lua_ls"].setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
-	settings = { -- custom settings for lua
+	settings = {
+		-- custom settings for lua
 		Lua = {
 			-- make the language server recognize "vim" global
 			diagnostics = {
