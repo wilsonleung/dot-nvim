@@ -37,8 +37,6 @@ local on_attach = function(client, bufnr)
 	keymap.set("n", "<leader>lI", "<cmd>LspInstallInfo<cr>", opts)
 	keymap.set("n", "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
 
-  asdfadsf
-
 	-- diagnostics related
 	keymap.set("n", "<leader>lc", "<cmd>Lspsaga show_cursor_diagnostics<CR>", opts) -- show diagnostics for cursor
 	keymap.set("n", "<leader>lp", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts) -- jump to previous diagnostic in buffer
