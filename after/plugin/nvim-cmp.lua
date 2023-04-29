@@ -21,8 +21,6 @@ require("luasnip/loaders/from_vscode").lazy_load()
 
 vim.opt.completeopt = "menu,menuone,noselect"
 
-vim.api.nvim_set_hl(0, "CmpNormal", { bg = "#002b36" })
-
 local select_opts = { behavior = cmp.SelectBehavior.Select }
 cmp.setup({
 	window = {
