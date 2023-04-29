@@ -25,7 +25,7 @@ local select_opts = { behavior = cmp.SelectBehavior.Select }
 cmp.setup({
 	window = {
 		completion = {
-			border = "none",
+			border = "rounded",
 			winhighlight = "Normal:Pmenu",
 		},
 		documentation = {
