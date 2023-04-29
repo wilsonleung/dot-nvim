@@ -66,6 +66,16 @@ local on_attach = function(client, bufnr)
 		keymap.set("n", "<leader>oi", ":TypescriptOrganizeImports<CR>") -- organize imports (not in youtube nvim video)
 		keymap.set("n", "<leader>ru", ":TypescriptRemoveUnused<CR>") -- remove unused variables (not in youtube nvim video)
 	end
+
+	-- add lsp signature support
+	require("lsp_signature").on_attach({
+		bind = true,
+		toggle_key = "<C-i>",
+		hint_prefix = "⚙️  ",
+		handler_opts = {
+			border = "single",
+		},
+	}, bufnr)
 end
 
 local protocol = require("vim.lsp.protocol")
