@@ -22,6 +22,10 @@ return require("packer").startup(function(use)
 		"svrana/neosolarized.nvim",
 		requires = { "tjdevries/colorbuddy.nvim" },
 	})
+
+	-- show indent vertical line
+	use("lukas-reineke/indent-blankline.nvim")
+
 	-- Common utilities
 	use({ "nvim-lua/plenary.nvim", tag = "v0.1.3" })
 
