@@ -21,7 +21,6 @@ require("luasnip/loaders/from_vscode").lazy_load()
 
 vim.opt.completeopt = "menu,menuone,noselect"
 
-local select_opts = { behavior = cmp.SelectBehavior.Select }
 cmp.setup({
 	window = {
 		completion = {
@@ -43,26 +42,32 @@ cmp.setup({
 		["<CR>"] = cmp.mapping.confirm({ select = false }),
 		["<Tab>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then
-				cmp.select_next_item(select_opts)
+				cmp.select_next_item()
+			elseif luasnip.expandable() then
+				luasnip.expand()
+			elseif luasnip.expand_or_jumpable() then
+				luasnip.expand_or_jump()
 			else
 				fallback()
 			end
 		end, { "i", "s" }),
 		["<S-Tab>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then
-				cmp.select_prev_item(select_opts)
+				cmp.select_prev_item()
+			elseif luasnip.jumpable(-1) then
+				luasnip.jump(-1)
 			else
 				fallback()
 			end
 		end, { "i", "s" }),
-		["<C-j>"] = cmp.mapping(function(fallback)
+		["<A-j>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then
 				cmp.scroll_docs(4)
 			else
 				fallback()
 			end
 		end, { "i", "s" }),
-		["<C-k>"] = cmp.mapping(function(fallback)
+		["<A-k>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then
 				cmp.scroll_docs(-4)
 			else
@@ -86,3 +91,41 @@ cmp.setup({
 		}),
 	},
 })
+
+local keymap = vim.api.nvim_set_keymap
+local opts = { noremap = true, silent = true }
+keymap("i", "<C-j>", "<cmd>lua require'luasnip'.jump(1)<CR>", opts)
+keymap("s", "<C-j>", "<cmd>lua require'luasnip'.jump(1)<CR>", opts)
+keymap("i", "<C-k>", "<cmd>lua require'luasnip'.jump(-1)<CR>", opts)
+keymap("s", "<C-k>", "<cmd>lua require'luasnip'.jump(-1)<CR>", opts)
+
+-- set keybinds for both INSERT and VISUAL.
+-- vim.keymap.set({ "i", "s" }, "C-sp", function()
+-- 	if luasnip.expand_or_jumpable() then
+-- 		luasnip.expand()
+-- 	end
+-- end)
+--
+-- vim.keymap.set({ "i", "s" }, "C-]", function()
+-- 	if luasnip.jumpable(1) then
+-- 		luasnip.jump(1)
+-- 	end
+-- end)
+--
+-- vim.keymap.set({ "i", "s" }, "C-[", function()
+-- 	if luasnip.jumpable(-1) then
+-- 		luasnip.jump(-1)
+-- 	end
+-- end)
+--
+-- vim.keymap.set({ "i", "s" }, "C-sh", function()
+-- 	if luasnip.choice_active() then
+-- 		luasnip.change_choice(1)
+-- 	end
+-- end)
+--
+-- vim.keymap.set({ "i", "s" }, "C-sl", function()
+-- 	if luasnip.choice_active() then
+-- 		luasnip.change_choice(-1)
+-- 	end
+-- end)
