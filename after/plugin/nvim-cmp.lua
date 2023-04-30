@@ -110,9 +110,9 @@ cmp.setup({
 
 	-- sources for autocompletion
 	sources = cmp.config.sources({
-		{ name = "nvim_lsp" }, -- lsp
+		{ name = "nvim_lsp", max_item_count = 6 }, -- lsp
 		{ name = "luasnip" }, -- snippets
-		{ name = "buffer" }, -- text within current buffer
+		{ name = "buffer", max_item_count = 6 }, -- text within current buffer
 		{ name = "path" }, -- file system paths
 	}),
 	-- configure lspkind for vs-code like icons
@@ -123,41 +123,3 @@ cmp.setup({
 		}),
 	},
 })
-
--- local keymap = vim.api.nvim_set_keymap
--- local opts = { noremap = true, silent = true }
--- keymap("i", "<C-j>", "<cmd>lua require'luasnip'.jump(1)<CR>", opts)
--- keymap("s", "<C-j>", "<cmd>lua require'luasnip'.jump(1)<CR>", opts)
--- keymap("i", "<C-k>", "<cmd>lua require'luasnip'.jump(-1)<CR>", opts)
--- keymap("s", "<C-k>", "<cmd>lua require'luasnip'.jump(-1)<CR>", opts)
-
--- set keybinds for both INSERT and VISUAL.
--- vim.keymap.set({ "i", "s" }, "C-sp", function()
--- 	if luasnip.expand_or_jumpable() then
--- 		luasnip.expand()
--- 	end
--- end)
---
--- vim.keymap.set({ "i", "s" }, "C-]", function()
--- 	if luasnip.jumpable(1) then
--- 		luasnip.jump(1)
--- 	end
--- end)
---
--- vim.keymap.set({ "i", "s" }, "C-[", function()
--- 	if luasnip.jumpable(-1) then
--- 		luasnip.jump(-1)
--- 	end
--- end)
---
--- vim.keymap.set({ "i", "s" }, "C-sh", function()
--- 	if luasnip.choice_active() then
--- 		luasnip.change_choice(1)
--- 	end
--- end)
---
--- vim.keymap.set({ "i", "s" }, "C-sl", function()
--- 	if luasnip.choice_active() then
--- 		luasnip.change_choice(-1)
--- 	end
--- end)
