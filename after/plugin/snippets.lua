@@ -26,6 +26,7 @@ ls.add_snippets(nil, {
 			trig = "useState",
 			namr = "useState",
 			dscr = "react useState hook",
+			priority = 2000,
 		}, {
 			text("const ["),
 			insert(1, "state"),
