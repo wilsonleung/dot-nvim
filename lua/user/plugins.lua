@@ -54,7 +54,7 @@ return require("packer").startup(function(use)
 	use("christoomey/vim-tmux-navigator")
 
 	-- snippets
-	use({ "L3MON4D3/LuaSnip", tag = "v1.2.1" }) -- snippet engine
+	use({ "L3MON4D3/LuaSnip", tag = "v1.2.1", run = "make install_jsregexp" }) -- snippet engine
 	use("saadparwaiz1/cmp_luasnip") -- for autocompletion
 	use("rafamadriz/friendly-snippets") -- useful snippets
 
@@ -62,7 +62,7 @@ return require("packer").startup(function(use)
 	use("onsails/lspkind-nvim") -- vscode-like pictograms
 	use("hrsh7th/cmp-buffer") -- nvim-cmp source for buffer words
 	use("hrsh7th/cmp-nvim-lsp") -- nvim-cmp source for neovim's built-in LSP
-	use("hrsh7th/nvim-cmp") -- Completion
+	use({ "hrsh7th/nvim-cmp", tag = "v0.0.1" }) -- Completion
 
 	-- managing & installing lsp servers, linters & formatters
 	use("williamboman/mason.nvim") -- in charge of managing lsp servers, linters & formatters
