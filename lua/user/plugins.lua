@@ -36,7 +36,13 @@ return require("packer").startup(function(use)
 	use({ "nvim-lualine/lualine.nvim", tag = "compat-nvim-0.6" })
 
 	-- commenting with gc
-	use({ "numToStr/Comment.nvim", tag = "v0.8.0" })
+	use({
+		"numToStr/Comment.nvim",
+		tag = "v0.8.0",
+		requires = {
+			"JoosepAlviste/nvim-ts-context-commentstring",
+		},
+	})
 
 	-- file explorer
 	use("nvim-tree/nvim-tree.lua")
