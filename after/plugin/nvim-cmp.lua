@@ -21,7 +21,18 @@ require("luasnip/loaders/from_vscode").lazy_load()
 
 vim.opt.completeopt = "menu,menuone,noselect"
 
+local cmp_behavior = { behavior = cmp.SelectBehavior.Insert }
+
+local has_words_before = function()
+	unpack = unpack or table.unpack
+	local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+	return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+end
+
 cmp.setup({
+	completion = {
+		completeopt = "menu,menuone,noinsert",
+	},
 	window = {
 		completion = {
 			border = "rounded",
@@ -39,21 +50,27 @@ cmp.setup({
 	},
 	mapping = cmp.mapping.preset.insert({
 		["<C-e>"] = cmp.mapping.abort(), -- close completion window
-		["<CR>"] = cmp.mapping.confirm({ select = false }),
+		["<CR>"] = cmp.mapping.confirm({
+			behavior = cmp.ConfirmBehavior.Replace,
+			select = true,
+		}),
 		["<Tab>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then
-				cmp.select_next_item()
-			elseif luasnip.expandable() then
-				luasnip.expand()
+				cmp.select_next_item(cmp_behavior)
+			-- You could replace the expand_or_jumpable() calls with expand_or_locally_jumpable()
+			-- they way you will only jump inside the snippet region
 			elseif luasnip.expand_or_jumpable() then
 				luasnip.expand_or_jump()
+			elseif has_words_before() then
+				cmp.complete()
 			else
 				fallback()
 			end
 		end, { "i", "s" }),
+
 		["<S-Tab>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then
-				cmp.select_prev_item()
+				cmp.select_prev_item(cmp_behavior)
 			elseif luasnip.jumpable(-1) then
 				luasnip.jump(-1)
 			else
@@ -75,7 +92,22 @@ cmp.setup({
 			end
 		end, { "i", "s" }),
 		["<C-Space>"] = cmp.mapping.complete(), -- show completion suggestions
+		["<C-j>"] = cmp.mapping(function(fallback)
+			if luasnip.jumpable(1) then
+				luasnip.jump(1)
+			else
+				fallback()
+			end
+		end, { "i", "s" }),
+		["<C-k>"] = cmp.mapping(function(fallback)
+			if luasnip.jumpable(-1) then
+				luasnip.jump(-1)
+			else
+				fallback()
+			end
+		end, { "i", "s" }),
 	}),
+
 	-- sources for autocompletion
 	sources = cmp.config.sources({
 		{ name = "nvim_lsp" }, -- lsp
@@ -92,12 +124,12 @@ cmp.setup({
 	},
 })
 
-local keymap = vim.api.nvim_set_keymap
-local opts = { noremap = true, silent = true }
-keymap("i", "<C-j>", "<cmd>lua require'luasnip'.jump(1)<CR>", opts)
-keymap("s", "<C-j>", "<cmd>lua require'luasnip'.jump(1)<CR>", opts)
-keymap("i", "<C-k>", "<cmd>lua require'luasnip'.jump(-1)<CR>", opts)
-keymap("s", "<C-k>", "<cmd>lua require'luasnip'.jump(-1)<CR>", opts)
+-- local keymap = vim.api.nvim_set_keymap
+-- local opts = { noremap = true, silent = true }
+-- keymap("i", "<C-j>", "<cmd>lua require'luasnip'.jump(1)<CR>", opts)
+-- keymap("s", "<C-j>", "<cmd>lua require'luasnip'.jump(1)<CR>", opts)
+-- keymap("i", "<C-k>", "<cmd>lua require'luasnip'.jump(-1)<CR>", opts)
+-- keymap("s", "<C-k>", "<cmd>lua require'luasnip'.jump(-1)<CR>", opts)
 
 -- set keybinds for both INSERT and VISUAL.
 -- vim.keymap.set({ "i", "s" }, "C-sp", function()
