@@ -79,7 +79,7 @@ return require("packer").startup(function(use)
 	use("neovim/nvim-lspconfig") -- easily configure language servers
 	use({
 		"glepnir/lspsaga.nvim",
-		branch = "main",
+		tag = "v0.2.9",
 		requires = {
 			{ "nvim-tree/nvim-web-devicons" },
 			{ "nvim-treesitter/nvim-treesitter" },
