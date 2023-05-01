@@ -23,6 +23,7 @@ treesitter.setup({
 		"yaml",
 		"html",
 		"css",
+		"scss",
 		"markdown",
 		"markdown_inline",
 		--    "svelte",
@@ -32,6 +33,9 @@ treesitter.setup({
 		"vim",
 		"dockerfile",
 		"gitignore",
+	},
+	context_commentstring = {
+		enable = true,
 	},
 	-- auto install above language parsers
 	auto_install = true,
