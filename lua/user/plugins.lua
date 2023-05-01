@@ -19,11 +19,6 @@ return require("packer").startup(function(use)
 	-- ======================
 
 	-- color scheme
-	-- use({
-	-- 	"svrana/neosolarized.nvim",
-	-- 	requires = { "tjdevries/colorbuddy.nvim" },
-	-- })
-
 	use("sainnhe/gruvbox-material")
 
 	-- show indent vertical line
