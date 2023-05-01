@@ -65,3 +65,4 @@ keymap.set("n", "<leader>gn", ":Gitsigns next_hunk<CR>") -- goto next hunk
 keymap.set("n", "<leader>gp", ":Gitsigns prev_hunk<CR>") -- goto prev hunk
 keymap.set("n", "<leader>gv", ":Gitsigns preview_hunk<CR>") -- preview hunk
 keymap.set("n", "<leader>gb", ":Gitsigns blame_line<CR>") -- line blame
+keymap.set("n", "<leader>gr", ":Gitsigns reset_hunk<CR>") -- line blame
