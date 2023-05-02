@@ -61,14 +61,14 @@ local on_attach = function(client, bufnr)
 	end
 
 	-- add lsp signature support
-	require("lsp_signature").on_attach({
-		bind = true,
-		toggle_key = "<C-i>",
-		hint_prefix = "⚙️  ",
-		handler_opts = {
-			border = "single",
-		},
-	}, bufnr)
+	-- require("lsp_signature").on_attach({
+	-- 	bind = true,
+	-- 	toggle_key = "<C-i>",
+	-- 	hint_prefix = "⚙️  ",
+	-- 	handler_opts = {
+	-- 		border = "single",
+	-- 	},
+	-- }, bufnr)
 end
 
 local protocol = require("vim.lsp.protocol")
