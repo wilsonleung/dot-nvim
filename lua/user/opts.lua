@@ -75,3 +75,16 @@ end
 if is_win then
 	vim.opt.clipboard:prepend({ "unnamed", "unnamedplus" })
 end
+
+-- neovide settings
+if vim.g.neovide then
+  if is_mac then
+    vim.g.neovide_transparency = 0.9
+  end
+
+  if is_win then
+    vim.g.neovide_transparency = 1
+  end
+
+	vim.g.neovide_cursor_animation_length = 0
+end
