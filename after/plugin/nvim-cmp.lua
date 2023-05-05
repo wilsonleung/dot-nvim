@@ -92,6 +92,7 @@ cmp.setup({
 			end
 		end, { "i", "s" }),
 		["<C-Space>"] = cmp.mapping.complete(), -- show completion suggestions
+		["<C-]>"] = cmp.mapping.complete(), -- show completion suggestions for terminal which cannot trigger c-space
 		["<C-j>"] = cmp.mapping(function(fallback)
 			if luasnip.jumpable(1) then
 				luasnip.jump(1)
