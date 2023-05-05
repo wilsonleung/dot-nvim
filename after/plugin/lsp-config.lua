@@ -43,6 +43,10 @@ local on_attach = function(client, bufnr)
 	keymap.set("n", "<leader>ll", "<cmd>Lspsaga show_line_diagnostics<CR>", opts) -- show  diagnostics for line
 	keymap.set("n", "<leader>lc", "<cmd>Lspsaga show_cursor_diagnostics<CR>", opts) -- show diagnostics for cursor
 	keymap.set("n", "<leader>lp", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts) -- jump to previous diagnostic in buffer
+
+	keymap.set("n", "<leader>lE", "<cmd>lua require('lspsaga.diagnostic'):goto_prev({ severity = vim.diagnostic.severity.ERROR })<CR>", opts)
+	keymap.set("n", "<leader>le", "<cmd>lua require('lspsaga.diagnostic'):goto_next({ severity = vim.diagnostic.severity.ERROR })<CR>", opts)
+
 	keymap.set("n", "<leader>ln", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts) -- jump to next diagnostic in buffer
 	keymap.set("n", "<leader>lb", "<cmd>Lspsaga show_buf_diagnostics<CR>", opts) -- list all diagnostic in buffer
 	keymap.set("n", "<leader>lw", "<cmd>Lspsaga show_workspace_diagnostics<CR>", opts) -- list all diagnostics in workspace
