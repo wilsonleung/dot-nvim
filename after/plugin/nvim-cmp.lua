@@ -111,9 +111,9 @@ cmp.setup({
 
 	-- sources for autocompletion
 	sources = cmp.config.sources({
-		{ name = "nvim_lsp", max_item_count = 6 }, -- lsp
-		{ name = "luasnip" }, -- snippets
-		{ name = "buffer", max_item_count = 6 }, -- text within current buffer
+		{ name = "nvim_lsp", max_item_count = 10 }, -- lsp
+		{ name = "luasnip", max_item_count = 10 }, -- snippets
+		{ name = "buffer", max_item_count = 10 }, -- text within current buffer
 		{ name = "path" }, -- file system paths
 	}),
 	-- configure lspkind for vs-code like icons
