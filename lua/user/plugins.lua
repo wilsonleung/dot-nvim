@@ -51,6 +51,9 @@ return require("packer").startup(function(use)
   -- vs-code like icons
   use("nvim-tree/nvim-web-devicons")
 
+  -- tab like display of buffer files
+  use { 'akinsho/bufferline.nvim', tag = "v4.*", requires = 'nvim-tree/nvim-web-devicons' }
+
   -- show line modifications on left hand side
   use({ "lewis6991/gitsigns.nvim", tag = "v0.6" })
 
