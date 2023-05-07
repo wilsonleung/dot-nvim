@@ -14,7 +14,7 @@ vim.g.loaded_netrwPlugin = 1
 -- configure nvim-tree
 nvimtree.setup({
   -- change folder arrow icons
---[[   renderer = {
+  --[[   renderer = {
     icons = {
       glyphs = {
         folder = {
@@ -34,9 +34,10 @@ nvimtree.setup({
       },
     },
   },
-  -- 	git = {
-  -- 		ignore = false,
-  -- 	},
+  git = {
+    ignore = false,
+    timeout = 1000 -- in ms
+  },
 })
 
 -- open nvim-tree on setup
