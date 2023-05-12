@@ -6,9 +6,12 @@ end
 
 saga.setup({
   ui = {
-    title = true,
-    winblend = 0,
-    border = "single",
+    border = "rounded",
+    title = false,
+    colors = {
+      normal_bg = "",
+      title_bg = ""
+    },
   },
   symbol_in_winbar = {
     enable = false
@@ -20,6 +23,11 @@ saga.setup({
     edit = "<CR>",
   },
   diagnostic = {
-    border_follow =  false,
+    border_follow = false,
+    show_code_action = false,
+    show_source = true
   },
+  lightbulb = {
+    enable = false
+  }
 })
