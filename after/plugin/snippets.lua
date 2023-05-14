@@ -40,5 +40,19 @@ ls.add_snippets(nil, {
         insert(3),
       })
     ),
+    snip(
+      {
+        trig = "useRef",
+        namr = "useRef",
+        dscr = "react useRef hook",
+        priority = 2000,
+      },
+      fmt([[const {ref} = useRef<{}>({})]], {
+        ref = insert(1, "ref"),
+        insert(2, "any"),
+        insert(3),
+      })
+    ),
+
   },
 })
