@@ -17,13 +17,11 @@ if not lspkind_status then
 end
 
 -- load vs-code like snippets from plugins (e.g. friendly-snippets)
-require("luasnip/loaders/from_vscode").lazy_load()
+-- require("luasnip/loaders/from_vscode").lazy_load()
 
--- todo: remove typescript react snippet after implemented own version
---
--- require("luasnip/loaders/from_vscode").lazy_load {
---   exclude = { "typescriptreact" },
--- }
+require("luasnip/loaders/from_vscode").lazy_load {
+  exclude = { "typescriptreact" },
+}
 
 
 vim.opt.completeopt = "menu,menuone,noselect"
