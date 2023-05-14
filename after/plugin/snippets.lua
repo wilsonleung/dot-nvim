@@ -1,11 +1,11 @@
 local status, ls = pcall(require, "luasnip")
 if not status then
-	return
+  return
 end
 
 ls.config.set_config({
-	history = true,
-	update_events = "TextChanged,TextChangedI",
+  history = true,
+  update_events = "TextChanged,TextChangedI",
 })
 
 -- some shorthands...
@@ -19,25 +19,26 @@ local dynamicn = ls.dynamic_node
 local fmt = require("luasnip.extras.fmt").fmt
 
 local function captialized(str)
-	return str:gsub("^%l", string.upper)
+  return str:gsub("^%l", string.upper)
 end
 
 ls.add_snippets(nil, {
-	typescriptreact = {
-		snip(
-			{
-				trig = "useState",
-				namr = "useState",
-				dscr = "react useState hook",
-				priority = 2000,
-			},
-			fmt([[const [{state}, set{setter}] = useState({})]], {
-				state = insert(1, "state"),
-				setter = func(function(arg, _)
-					return captialized(arg[1][1])
-				end, { 1 }),
-				insert(2),
-			})
-		),
-	},
+  typescriptreact = {
+    snip(
+      {
+        trig = "useState",
+        namr = "useState",
+        dscr = "react useState hook",
+        priority = 2000,
+      },
+      fmt([[const [{state}, set{setter}] = useState<{}>({})]], {
+        state = insert(1, "state"),
+        setter = func(function(arg, _)
+          return captialized(arg[1][1])
+        end, { 1 }),
+        insert(2, "any"),
+        insert(3),
+      })
+    ),
+  },
 })
