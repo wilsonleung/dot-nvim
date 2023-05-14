@@ -8,10 +8,10 @@ saga.setup({
   ui = {
     border = "rounded",
     title = false,
-    colors = {
-      normal_bg = "",
-      title_bg = ""
-    },
+    -- colors = {
+    --   normal_bg = "",
+    --   title_bg = "",
+    -- },
   },
   symbol_in_winbar = {
     enable = false

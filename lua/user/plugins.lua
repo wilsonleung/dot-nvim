@@ -19,7 +19,8 @@ return require("packer").startup(function(use)
   -- ======================
 
   -- color scheme
-  use("sainnhe/gruvbox-material")
+  -- use("sainnhe/gruvbox-material")
+  use 'eddyekofo94/gruvbox-flat.nvim'
 
   -- show indent vertical line
   use("lukas-reineke/indent-blankline.nvim")
