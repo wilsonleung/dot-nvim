@@ -42,8 +42,8 @@ vim.opt.wildignore:append({ "*/node_modules/*" })
 
 -- Turn off paste mode when leaving insert
 vim.api.nvim_create_autocmd("InsertLeave", {
-	pattern = "*",
-	command = "set nopaste",
+  pattern = "*",
+  command = "set nopaste",
 })
 
 -- Add asterisks in block comments
@@ -70,10 +70,18 @@ local is_win = has("win32")
 local is_wsl = has("wsl")
 
 if is_mac then
-	vim.opt.clipboard:append({ "unnamedplus" })
+  vim.opt.clipboard:append({ "unnamedplus" })
 end
 if is_win then
-	vim.opt.clipboard:prepend({ "unnamed", "unnamedplus" })
+  vim.opt.clipboard:prepend({ "unnamed", "unnamedplus" })
+end
+if is_wsl then
+  vim.cmd [[
+    augroup Yank
+    autocmd!
+    autocmd TextYankPost * :call system('/mnt/c/windows/system32/clip.exe ',@")
+    augroup END
+  ]]
 end
 
 -- neovide settings
@@ -86,5 +94,5 @@ if vim.g.neovide then
     vim.g.neovide_transparency = 1
   end
 
-	vim.g.neovide_cursor_animation_length = 0
+  vim.g.neovide_cursor_animation_length = 0
 end
