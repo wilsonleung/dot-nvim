@@ -76,12 +76,18 @@ if is_win then
   vim.opt.clipboard:prepend({ "unnamed", "unnamedplus" })
 end
 if is_wsl then
-  vim.cmd [[
-    augroup Yank
-    autocmd!
-    autocmd TextYankPost * :call system('/mnt/c/windows/system32/clip.exe ',@")
-    augroup END
-  ]]
+  vim.g.clipboard = {
+    name = "WslClipboard",
+    copy = {
+      ['+'] = "clip.exe",
+      ['*'] = "clip.exe",
+    },
+    paste = {
+      ['+'] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+        ['*'] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+    },
+   cache_enabled = 0,
+  }
 end
 
 -- neovide settings
