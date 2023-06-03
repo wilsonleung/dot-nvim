@@ -74,8 +74,8 @@ return require("packer").startup(function(use)
   use({ "hrsh7th/nvim-cmp", tag = "v0.0.1" }) -- Completion
 
   -- managing & installing lsp servers, linters & formatters
-  use("williamboman/mason.nvim")           -- in charge of managing lsp servers, linters & formatters
-  use("williamboman/mason-lspconfig.nvim") -- bridges gap b/w mason & lspconfig
+  use({ "williamboman/mason.nvim", run = ":MasonUpdate", tag = "v1.*" }) -- in charge of managing lsp servers, linters & formatters
+  use({ "williamboman/mason-lspconfig.nvim", tag = "v1.*" })             -- bridges gap b/w mason & lspconfig
   -- use("ray-x/lsp_signature.nvim")
 
   -- configuring lsp servers
