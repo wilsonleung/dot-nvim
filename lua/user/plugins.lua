@@ -85,7 +85,13 @@ return require("packer").startup(function(use)
     tag = "v0.2.9",
     requires = {
       { "nvim-tree/nvim-web-devicons" },
-      { "nvim-treesitter/nvim-treesitter" },
+      {
+        "nvim-treesitter/nvim-treesitter",
+        run = function()
+          local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
+          ts_update()
+        end,
+      },
     },
   })                                        -- enhanced lsp uis
   use("jose-elias-alvarez/typescript.nvim") -- additional functionality for typescript server (e.g. rename file & update imports)
