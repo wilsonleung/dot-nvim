@@ -11,4 +11,8 @@
 -- vim.g.gruvbox_italic_keywords = false
 --
 -- vim.cmd("colorscheme gruvbox-flat")
-vim.cmd[[colorscheme tokyonight]]
+--
+--
+-- moved this line to bufferline.lua
+-- because the sequnce will affect the bufferline color
+-- vim.cmd[[colorscheme tokyonight]]

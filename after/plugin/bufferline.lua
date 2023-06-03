@@ -1,6 +1,7 @@
 local status, bufferline = pcall(require, "bufferline")
 if (not status) then return end
 
+vim.cmd[[colorscheme tokyonight]]
 
 bufferline.setup({
   options = {
@@ -18,34 +19,34 @@ bufferline.setup({
     enforce_regular_tabs = true,
     always_show_bufferline = true,
   },
-  highlights = {
-    tab_separator_selected = {
-      fg = '#ff0000',
-      bg = '#ededed',
-    },
-    tab_selected = {
-      fg = '#073642',
-      bg = '#ededed',
-    },
-    separator = {
-      fg = '#ededed',
-      bg = '#ededed',
-    },
-    separator_selected = {
-      fg = '#073642',
-    },
-    background = {
-      fg = '#657b83',
-      bg = '#002b36'
-    },
-    buffer_selected = {
-      fg = '#fdf6e3',
-      bold = true,
-    },
-    fill = {
-      bg = '#ededed'
-    }
-  },
+  -- highlights = {
+  --   tab_separator_selected = {
+  --     fg = '#ff0000',
+  --     bg = '#ededed',
+  --   },
+  --   tab_selected = {
+  --     fg = '#073642',
+  --     bg = '#ededed',
+  --   },
+  --   separator = {
+  --     fg = '#ededed',
+  --     bg = '#ededed',
+  --   },
+  --   separator_selected = {
+  --     fg = '#073642',
+  --   },
+  --   background = {
+  --     fg = '#657b83',
+  --     bg = '#002b36'
+  --   },
+  --   buffer_selected = {
+  --     fg = '#fdf6e3',
+  --     bold = true,
+  --   },
+  --   fill = {
+  --     bg = '#ededed'
+  --   }
+  -- },
 })
 
 vim.keymap.set('n', '<Tab>', '<Cmd>BufferLineCycleNext<CR>', {})
